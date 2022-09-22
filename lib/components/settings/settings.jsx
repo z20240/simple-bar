@@ -139,7 +139,7 @@ export const Wrapper = () => {
     Utils.blurBar();
   };
 
-  const onKeydown = Uebersicht.React.useCallback((e) => {
+  const onKeydown = Uebersicht.React.useCallback(async (e) => {
     const { ctrlKey, keyCode, metaKey, which } = e;
     if ((ctrlKey || metaKey) && (which === 188 || keyCode === 188)) {
       e.preventDefault();
@@ -165,7 +165,7 @@ export const Wrapper = () => {
           ...settings,
           global: { ...settings.global, theme: newValue },
         };
-        Settings.set(updatedSettings);
+        await Settings.set(updatedSettings);
         Utils.hardRefresh();
       }
     }
