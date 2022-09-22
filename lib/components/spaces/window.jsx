@@ -24,6 +24,8 @@ const Window = ({ window }) => {
     (displayOnlyCurrent && !(hasFocus ?? __legacyHasFocus))
   )
     return null;
+
+  if (appName === "Hammerspoon") return null;
   const isFocused = hasFocus ?? __legacyHasFocus;
   const Icon = AppIcons.apps[appName] || AppIcons.apps.Default;
   const classes = Utils.classnames("process__window", {
