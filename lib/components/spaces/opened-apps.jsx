@@ -17,6 +17,8 @@ const OpenedApps = ({ apps }) => {
     } = app;
     if (isMinimized ?? __legacyIsMinimized) return null;
 
+    if (appName === "Hammerspoon") return null;
+
     const Icon = AppIcons.apps[appName] || AppIcons.apps.Default;
     const classes = Utils.classnames("space__icon", {
       "space__icon--focused": hasFocus ?? __legacyHasFocus,
